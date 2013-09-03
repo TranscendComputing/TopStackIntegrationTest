@@ -1,0 +1,3770 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="TopStack SQS" resourceRoot="" soapui-version="4.5.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="SQS" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+      <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+      <con:endpoint>http://172.31.253.10:8080</con:endpoint>
+      <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/nonexistent</con:endpoint>
+    </con:endpoints>
+    <con:resource name="SQS Actions" path="">
+      <con:settings/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>Action</con:name>
+          <con:value/>
+          <con:style>QUERY</con:style>
+          <con:default/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>AWSAccessKeyId</con:name>
+          <con:value>${#Project#AWSAccessKeyId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${#Project#AWSAccessKeyId}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>Expires</con:name>
+          <con:value>${#Project#Expires}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${#Project#Expires}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>Signature</con:name>
+          <con:value>${#Project#Signature}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${#Project#Signature}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>SignatureMethod</con:name>
+          <con:value>${#Project#SignatureMethod}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${#Project#SignatureMethod}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>SignatureVersion</con:name>
+          <con:value>${#Project#SignatureVersion}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${#Project#SignatureVersion}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>Timestamp</con:name>
+          <con:value>${#Project#Timestamp}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${#Project#Timestamp}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>Version</con:name>
+          <con:value>${#Project#Version}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${#Project#Version}</con:default>
+        </con:parameter>
+      </con:parameters>
+      <con:method name="AddPermission" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Label</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>AWSAccountId.1</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>ActionName.1</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>Action</con:name>
+            <con:value>AddPermission</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>AddPermission</con:default>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>500</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>AddPermissionResponse</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>0</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:request name="Add permission to queue">
+          <con:settings/>
+          <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="ChangeMessageVisibility" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Action</con:name>
+            <con:value>ChangeMessageVisibility</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>ChangeMessageVisibility</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>ReceiptHandle</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>VisibilityTimeout</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>500</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>403</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>ChangeMessageVisibilityResonse</con:element>
+        </con:representation>
+        <con:request name="Change Message Visibility">
+          <con:settings/>
+          <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="ChangeMessageVisibilityBatch" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>ChangeMessageVisibilityBatchRequestEntry.1.Id</con:name>
+            <con:value>batch-msg1</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>batch-msg1</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout</con:name>
+            <con:value>0</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>0</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>Action</con:name>
+            <con:value>ChangeMessageVisibilityBatch</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>ChangeMessageVisibilityBatch</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>ChangeMessageVisibilityBatchRequestEntry.2.Id</con:name>
+            <con:value>batch-msg2</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>batch-msg2</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>ChangeMessageVisibilityBatchRequestEntry.2.ReceiptHandle</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>ChangeMessageVisibilityBatchRequestEntry.2.VisibilityTimeout</con:name>
+            <con:value>0</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>0</con:default>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="Change message visibility batch">
+          <con:settings/>
+          <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="CreateQueue" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Action</con:name>
+            <con:value>CreateQueue</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>CreateQueue</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>QueueName</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>Attribute.1.Name</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>Attribute.1.Value</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="FAULT">
+          <con:mediaType>text/html;charset=utf-8</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+          <con:element>html</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>CreateQueueResponse</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>0</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>0</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>500</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>500</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:request name="Create Queue" mediaType="application/xml">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <entry key="QueueName" value="msi-queue" xmlns="http://eviware.com/soapui/config"/>
+          </con:parameters>
+        </con:request>
+      </con:method>
+      <con:method name="DeleteMessage" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Action</con:name>
+            <con:value>DeleteMessage</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>DeleteMessage</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>ReceiptHandle</con:name>
+            <con:style>QUERY</con:style>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>500</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>DeleteMessageResonse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>403</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>403</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>403</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:request name="DeleteMessage" mediaType="application/xml">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <entry key="ReceiptHandle" value="8aae4178-5ac3-4cbc-92a0-2cc551fe7f97" xmlns="http://eviware.com/soapui/config"/>
+          </con:parameters>
+        </con:request>
+      </con:method>
+      <con:method name="DeleteMessageBatch" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Action</con:name>
+            <con:value>DeleteMessageBatch</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>DeleteMessageBatch</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>DeleteMessageBatchRequestEntry.1.Id</con:name>
+            <con:value>id</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>id</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>DeleteMessageBatchRequestEntry.n.ReceiptHandle</con:name>
+            <con:value>receipt handle</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>receipt handle</con:default>
+          </con:parameter>
+        </con:parameters>
+      </con:method>
+      <con:method name="DeleteQueue" method="GET">
+        <con:settings>
+          <con:setting id="RecordResponseRepresentations">false</con:setting>
+        </con:settings>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Action</con:name>
+            <con:value>DeleteQueue</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>DeleteQueue</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>DeleteQueueResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>500</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:request name="Delete Queue" mediaType="application/xml">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="GetQueueAttributes" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Action</con:name>
+            <con:value>GetQueueAttributes</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>GetQueueAttributes</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>AttributeName.1</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>AttributeName.2</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>AttributeName.3</con:name>
+            <con:style>QUERY</con:style>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>GetQueueAttributesResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:request name="Get Attributes" mediaType="application/xml">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <entry key="AttributeName.1" value="All" xmlns="http://eviware.com/soapui/config"/>
+          </con:parameters>
+        </con:request>
+      </con:method>
+      <con:method name="GetQueueUrl" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Action</con:name>
+            <con:value>GetQueueUrl</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>GetQueueUrl</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>QueueName</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>QueueOwnerAWSAccountId</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>GetQueueUrlResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:request name="Get URL" mediaType="application/xml">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <entry key="QueueName" value="msi-queue" xmlns="http://eviware.com/soapui/config"/>
+          </con:parameters>
+        </con:request>
+      </con:method>
+      <con:method name="ListQueues" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Action</con:name>
+            <con:value>ListQueues</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>ListQueues</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>QueueNamePrefix</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="FAULT">
+          <con:mediaType>text/html;charset=utf-8</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+          <con:element>html</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>ListQueuesResponse</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/html</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>html</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>500</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:request name="List Queues" mediaType="application/xml">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="ReceiveMessage" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>AttributeName.1</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>MaxNumberOfMessages</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>VisibilityTimeout</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>Action</con:name>
+            <con:value>ReceiveMessage</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>ReceiveMessage</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>ReceiveMessageResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>text/html;charset=utf-8</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+          <con:element>html</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>0</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>0</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>403</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>403</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>403</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>403</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:request name="Receive Message" mediaType="application/xml">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <entry key="MaxNumberOfMessages" value="10" xmlns="http://eviware.com/soapui/config"/>
+          </con:parameters>
+        </con:request>
+      </con:method>
+      <con:method name="RemovePermission" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Action</con:name>
+            <con:value>RemovePermission</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>RemovePermission</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>Label</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>500</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>RemovePermissionResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>500</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:request name="Remove permission" mediaType="application/xml">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <entry key="Label" value="SendMessage" xmlns="http://eviware.com/soapui/config"/>
+          </con:parameters>
+        </con:request>
+      </con:method>
+      <con:method name="SendMessage" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Action</con:name>
+            <con:value>SendMessage</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>SendMessage</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>MessageBody</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>DelaySeconds</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>SendMessageResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>403</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>403</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>403</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>403</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>403</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:request name="Send Message" mediaType="application/xml">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="SendMessageBatch" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>SendMessageBatchRequestEntry.1.Id</con:name>
+            <con:value>id1</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>id1</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>SendMessageBatchRequestEntry.1.MessageBody</con:name>
+            <con:value>message body1</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>message body1</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>SendMessageBatchRequestEntry.1.DelaySeconds</con:name>
+            <con:value>delay seconds1</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>delay seconds1</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>Action</con:name>
+            <con:value>SendMessageBatch</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>SendMessageBatch</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>SendMessageBatchRequestEntry.2.Id</con:name>
+            <con:value>id2</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>id2</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>SendMessageBatchRequestEntry.3.Id</con:name>
+            <con:value>id3</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>id3</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>SendMessageBatchRequestEntry.4.Id</con:name>
+            <con:value>id4</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>id4</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>SendMessageBatchRequestEntry.5.Id</con:name>
+            <con:value>id5</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>id5</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>SendMessageBatchRequestEntry.2.MessageBody</con:name>
+            <con:value>message2</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>message2</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>SendMessageBatchRequestEntry.3.MessageBody</con:name>
+            <con:value>message3</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>message3</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>SendMessageBatchRequestEntry.4.MessageBody</con:name>
+            <con:value>message4</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>message4</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>SendMessageBatchRequestEntry.5.MessageBody</con:name>
+            <con:value>message5</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>message5</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>SendMessageBatchRequestEntry.2.DelaySeconds</con:name>
+            <con:value>delay2</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>delay2</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>SendMessageBatchRequestEntry.3.DelaySeconds</con:name>
+            <con:value>delay3</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>delay3</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>SendMessageBatchRequestEntry.4.DelaySeconds</con:name>
+            <con:value>delay4</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>delay4</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>SendMessageBatchRequestEntry.5.DelaySeconds</con:name>
+            <con:value>delay5</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>delay5</con:default>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>500</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>500</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>SendMessageBatchResponse</con:element>
+        </con:representation>
+        <con:request name="Send Message Batch" mediaType="application/xml">
+          <con:settings/>
+          <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <con:entry key="SendMessageBatchRequestEntry.4.Id" value="test-id4"/>
+            <con:entry key="SendMessageBatchRequestEntry.4.DelaySeconds" value=""/>
+            <con:entry key="SendMessageBatchRequestEntry.2.DelaySeconds" value=""/>
+            <con:entry key="SendMessageBatchRequestEntry.5.DelaySeconds" value=""/>
+            <con:entry key="SendMessageBatchRequestEntry.3.DelaySeconds" value=""/>
+            <con:entry key="SendMessageBatchRequestEntry.1.MessageBody" value="message1"/>
+          </con:parameters>
+        </con:request>
+      </con:method>
+      <con:method name="SetQueueAttributes" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Action</con:name>
+            <con:value>SetQueueAttributes</con:value>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default>SetQueueAttributes</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>Attribute.1.Name</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>Attribute.1.Value</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>500</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>500</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>SetQueueAttributesResonse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element>ErrorResponse</con:element>
+        </con:representation>
+        <con:request name="Set Queue Attributes" mediaType="application/xml">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <con:entry key="Attribute.1.Value" value="15"/>
+            <con:entry key="Attribute.1.Name" value="VisibilityTimeout"/>
+          </con:parameters>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite name="Basic Queue Tests">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Create duplicate queue" searchProperties="true" disabled="true">
+      <con:settings/>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Create A Queue with defaults" searchProperties="true" id="3f8e4bd3-1988-4a18-88d5-25a4390755fd">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Create Queue 'msi-queue'">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="CreateQueue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Create Queue 'msi-queue'" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is CreateQueueResponse">
+              <con:configuration>
+                <path>exists(CreateQueueResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Queue URL exists in the response">
+              <con:configuration>
+                <path>exists(CreateQueueResponse/CreateQueueResult/QueueUrl)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="QueueName" value="msi-queue" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List Queues to check Existence of queue">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ListQueues" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List Queues to check Existence of queue" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="XPath Match">
+              <con:configuration>
+                <path>exists(ListQueuesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Queue URL is returned">
+              <con:configuration>
+                <path>ListQueuesResponse/ListQueuesResult/QueueUrl</path>
+                <content>http://*/SQSQuery/*/msi-queue</content>
+                <allowWildcards>true</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="QueueNamePrefix" value="msi-queue" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="List Queues" searchProperties="true" id="9fd76d27-35c2-4d0e-8f2c-715a2ea94f3e">
+      <con:settings/>
+      <con:testStep type="restrequest" name="List Queues with no QueueNamePrefix">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ListQueues" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List Queues with no QueueNamePrefix" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ListQueuesResponse">
+              <con:configuration>
+                <path>exists(ListQueuesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Queue URL is returned">
+              <con:configuration>
+                <path>ListQueuesResponse/ListQueuesResult/QueueUrl</path>
+                <content>http://*/SQSQuery/*/msi-queue</content>
+                <allowWildcards>true</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="QueueNamePrefix" value="msi" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List Queues with partial QueueNamePrefix">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ListQueues" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List Queues with partial QueueNamePrefix" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ListQueuesResponse">
+              <con:configuration>
+                <path>exists(ListQueuesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Queue URL is returned">
+              <con:configuration>
+                <path>ListQueuesResponse/ListQueuesResult/QueueUrl</path>
+                <content>http://*/SQSQuery/*/msi-queue</content>
+                <allowWildcards>true</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="QueueNamePrefix" value="msi" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List Queues with full name for QueueNamePrefix">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ListQueues" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List Queues with full name for QueueNamePrefix" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ListQueuesResponse">
+              <con:configuration>
+                <path>exists(ListQueuesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Queue URL is returned">
+              <con:configuration>
+                <path>ListQueuesResponse/ListQueuesResult/QueueUrl</path>
+                <content>http://*/SQSQuery/*/msi-queue</content>
+                <allowWildcards>true</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="QueueNamePrefix" value="msi-queue" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Get Queue URL" searchProperties="true" id="4213cac8-1733-408d-a751-a32301125813">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Get URL">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="GetQueueUrl" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Get URL" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is GetQueueUrlResponse">
+              <con:configuration>
+                <path>exists(GetQueueUrlResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="URL for msi-queue is returned">
+              <con:configuration>
+                <path>GetQueueUrlResponse/GetQueueUrlResult/QueueUrl</path>
+                <content>http://*/SQSQuery/*/msi-queue</content>
+                <allowWildcards>true</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="QueueName" value="msi-queue" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Get URL with specified account number">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="GetQueueUrl" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Get URL with specified account number" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is GetQueueUrlResponse">
+              <con:configuration>
+                <path>exists(GetQueueUrlResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="URL for msi-queue is returned">
+              <con:configuration>
+                <path>GetQueueUrlResponse/GetQueueUrlResult/QueueUrl</path>
+                <content>http://*/SQSQuery/*/msi-queue</content>
+                <allowWildcards>true</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="QueueOwnerAWSAccountId" value="${#Project#AccountNumber}"/>
+              <con:entry key="QueueName" value="msi-queue"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Delete the Queue" searchProperties="true" id="1d1346b2-173d-419a-8df5-5e657aef5213">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Delete Queue">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="DeleteQueue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Delete Queue" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is DeleteQueueResponse">
+              <con:configuration>
+                <path>exists(DeleteQueueResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="delay" name="Wait 1 minute for queue deletion">
+        <con:settings/>
+        <con:config>
+          <delay>60000</delay>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Delete non-existant queue" searchProperties="true" id="63da96e4-8f7f-4fed-a9cc-1fce63839362">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Delete Queue that doesn't exist">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="DeleteQueue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Delete Queue that doesn't exist" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/nonexistent</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Returns a NonExistentQueue error">
+              <con:configuration>
+                <path>ErrorResponse/Error/Code</path>
+                <content>NonExistentQueue</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:properties/>
+  </con:testSuite>
+  <con:testSuite name="Queue Message Tests">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Create a queue" searchProperties="true" id="f086f0e0-58a9-4fc1-8117-54a3f5c86b97">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Create Queue 'msi-queue'">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="CreateQueue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Create Queue 'msi-queue'" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is CreateQueueResponse">
+              <con:configuration>
+                <path>exists(CreateQueueResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Queue URL exists in the response">
+              <con:configuration>
+                <path>exists(CreateQueueResponse/CreateQueueResult/QueueUrl)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="QueueName" value="msi-queue" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List Queues to check Existence of queue">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ListQueues" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List Queues to check Existence of queue" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="XPath Match">
+              <con:configuration>
+                <path>exists(ListQueuesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Queue URL is returned">
+              <con:configuration>
+                <path>ListQueuesResponse/ListQueuesResult/QueueUrl</path>
+                <content>http://*/SQSQuery/*/msi-queue</content>
+                <allowWildcards>true</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="QueueNamePrefix" value="msi-queue" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Send Message to queue" searchProperties="true" id="879a8a67-ce5f-4a1d-894e-bb7613dd44a9">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Send Message (with delay of 15 seconds)">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="SendMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Send Message (with delay of 15 seconds)" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is SendMessageResponse">
+              <con:configuration>
+                <path>exists(SendMessageResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Response has MD5OfMessageBody">
+              <con:configuration>
+                <path>exists(SendMessageResponse/SendMessageResult/MD5OfMessageBody)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Response shows MessageId">
+              <con:configuration>
+                <path>exists(SendMessageResponse/SendMessageResult/MessageId)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="DelaySeconds" value="15"/>
+              <con:entry key="MessageBody" value="testing messages"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Attempt to receive message before delay" searchProperties="true" id="cb7b9f2c-0c85-4127-b97a-3a8b2e53ef7a">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Attempt to receive message before sent message delay is up">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Attempt to receive message before sent message delay is up" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ReceiveMessageResponse">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Message &quot;testing messages&quot; is not returned">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse/ReceiveMessageResult/Message[Body="testing messages"])</path>
+                <content>false</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="MaxNumberOfMessages" value="1" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="delay" name="Wait 30 seconds for message delay">
+        <con:settings/>
+        <con:config>
+          <delay>30000</delay>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Receive Messages" searchProperties="true" id="92c4f801-63ff-46ed-8d1d-6d690dba1ffb">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Receive Message with default parameters">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Receive Message with default parameters" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ReceiveMessageResponse">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Message &quot;testing messages&quot; is returned">
+              <con:configuration>
+                <path>ReceiveMessageResponse/ReceiveMessageResult/Message[Body="testing messages"]/Body</path>
+                <content>testing messages</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="MaxNumberOfMessages" value="1" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Attempt to receive message before VisibilityTimeout">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Attempt to receive message before VisibilityTimeout" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ReceiveMessageResponse">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Message is not received">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse/ReceiveMessageResult/Message[Body="testing messages"]/Body)</path>
+                <content>false</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="MaxNumberOfMessages" value="2" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="delay" name="Wait 30 seconds for VisibilityTimeout">
+        <con:settings/>
+        <con:config>
+          <delay>30000</delay>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Receive Message with all attributes">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Receive Message with all attributes" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ReceiveMessageResponse">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Message &quot;testing messages&quot; is returned">
+              <con:configuration>
+                <path>ReceiveMessageResponse/ReceiveMessageResult/Message[Body="testing messages"]/Body</path>
+                <content>testing messages</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XQuery Match" name="Response shows all 4 Attributes">
+              <con:configuration>
+                <path>&lt;Result>
+{
+let $x :=ReceiveMessageResponse/ReceiveMessageResult/Message/Attribute
+return count($x)
+}
+&lt;/Result></path>
+                <content>&lt;Result>4&lt;/Result></content>
+                <allowWildcards>false</allowWildcards>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="AttributeName.1" value="All" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="delay" name="Wait another 30 seconds for VisibilityTimeout">
+        <con:settings/>
+        <con:config>
+          <delay>30000</delay>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Receive message + set VisibilityTImeout" searchProperties="true" id="2c39ee04-d55d-409d-89e9-0e32f5330a8a">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Receive message while setting VisibilityTimeout">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Receive message while setting VisibilityTimeout" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ReceiveMessageResponse">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Message &quot;testing messages&quot; is returned">
+              <con:configuration>
+                <path>ReceiveMessageResponse/ReceiveMessageResult/Message[Body="testing messages"]/Body</path>
+                <content>testing messages</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="VisibilityTimeout" value="10"/>
+              <con:entry key="MaxNumberOfMessages" value="1"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="delay" name="Wait 10 seconds for VisibilityTimeout">
+        <con:settings/>
+        <con:config>
+          <delay>10000</delay>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Receive message (will fail if VisibilityTimeout is default)">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Receive message (will fail if VisibilityTimeout is default)" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ReceiveMessageResponse">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Message &quot;testing messages&quot; is returned">
+              <con:configuration>
+                <path>ReceiveMessageResponse/ReceiveMessageResult/Message[Body="testing messages"]/Body</path>
+                <content>testing messages</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="VisibilityTimeout" value="30"/>
+              <con:entry key="MaxNumberOfMessages" value="1"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Send message batch" searchProperties="true" id="6c3e8d1f-2628-40b8-8fc3-64d33dc1f2ff">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Send messages">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="SendMessageBatch" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Send messages" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is SendMessageBatchResponse">
+              <con:configuration>
+                <path>exists(SendMessageBatchResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XQuery Match" name="Entries for 5 messages are returned">
+              <con:configuration>
+                <path>&lt;Result>
+{
+let $x := //SendMessageBatchResultEntry
+return count($x)
+}
+&lt;/Result></path>
+                <content>&lt;Result>5&lt;/Result></content>
+                <allowWildcards>false</allowWildcards>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="SendMessageBatchRequestEntry.4.DelaySeconds" value="0"/>
+              <con:entry key="SendMessageBatchRequestEntry.2.DelaySeconds" value="0"/>
+              <con:entry key="SendMessageBatchRequestEntry.5.DelaySeconds" value="0"/>
+              <con:entry key="SendMessageBatchRequestEntry.3.DelaySeconds" value="0"/>
+              <con:entry key="SendMessageBatchRequestEntry.1.MessageBody" value="message1"/>
+              <con:entry key="SendMessageBatchRequestEntry.1.DelaySeconds" value="0"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Check attributes to make sure 5 messages are now in the queue">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="GetQueueAttributes" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Check attributes to make sure 5 messages are now in the queue" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Check ApproximateNumberOfMessages=5">
+              <con:configuration>
+                <path>GetQueueAttributesResponse/GetQueueAttributesResult/Attribute[Name='ApproximateNumberOfMessages']/Value</path>
+                <content>5</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="AttributeName.1" value="All" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Receive Messages">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Receive Messages" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ReceiveMessageResponse">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XQuery Match" name="5 messages received">
+              <con:configuration>
+                <path>&lt;Result>
+{
+let $x:=//Message
+return count($x)
+}
+&lt;/Result></path>
+                <content>&lt;Result>5&lt;/Result></content>
+                <allowWildcards>false</allowWildcards>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="MaxNumberOfMessages" value="10" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Delete the queue" searchProperties="true" id="a38f2950-e8bf-44cd-92d9-8c343d66d738">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Delete Queue">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="DeleteQueue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Delete Queue" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is DeleteQueueResponse">
+              <con:configuration>
+                <path>exists(DeleteQueueResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="delay" name="Wait 1 minute for queue deletion">
+        <con:settings/>
+        <con:config>
+          <delay>60000</delay>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:properties/>
+  </con:testSuite>
+  <con:testSuite name="Queue Attribute Tests">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Create Queue with non-default VisibilityTimeout" searchProperties="true" id="f6dd0d20-94e7-41f6-bbe0-8b5f1e36e203">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Create Queue 'msi-queue'">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="CreateQueue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Create Queue 'msi-queue'" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is CreateQueueResponse">
+              <con:configuration>
+                <path>exists(CreateQueueResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Queue URL exists in the response">
+              <con:configuration>
+                <path>exists(CreateQueueResponse/CreateQueueResult/QueueUrl)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="Attribute.1.Value" value="10"/>
+              <con:entry key="QueueName" value="msi-queue"/>
+              <con:entry key="Attribute.1.Name" value="VisibilityTimeout"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Get  attribute VisibilityTimeout to check value">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="GetQueueAttributes" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Get  attribute VisibilityTimeout to check value" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is GetQueueAttributesResponse">
+              <con:configuration>
+                <path>exists(GetQueueAttributesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XQuery Match" name="Response only contains VisibilityTimeout attribute">
+              <con:configuration>
+                <path>&lt;Result>
+{
+for $x in GetQueueAttributesResponse/GetQueueAttributesResult/Attribute
+where $x/Name!='VisibilityTimeout'
+return "Attribute other than VisibilityTimeout exists"
+}
+&lt;/Result></path>
+                <content>&lt;Result/></content>
+                <allowWildcards>false</allowWildcards>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="VisibilityTimeout=10">
+              <con:configuration>
+                <path>GetQueueAttributesResponse/GetQueueAttributesResult/Attribute[Name='VisibilityTimeout']/Value</path>
+                <content>10</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="AttributeName.1" value="VisibilityTimeout" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Get Attributes" searchProperties="true" id="6d085d52-453e-4b40-a637-0be06b3ff6dc">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Get All Attributes">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="GetQueueAttributes" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Get All Attributes" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is GetQueueAttributesResponse">
+              <con:configuration>
+                <path>exists(GetQueueAttributesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Response contains attributes">
+              <con:configuration>
+                <path>exists(GetQueueAttributesResponse/GetQueueAttributesResult/Attribute)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="AttributeName.1" value="All" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Get multiple attributes">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="GetQueueAttributes" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Get multiple attributes" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is GetQueueAttributesResponse">
+              <con:configuration>
+                <path>exists(GetQueueAttributesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XQuery Match" name="Response only contains specified attribute">
+              <con:configuration>
+                <path>&lt;Result>
+{
+for $x in GetQueueAttributesResponse/GetQueueAttributesResult/Attribute
+where $x/Name!='VisibilityTimeout' and $x/Name!='QueueArn' and $x/Name!='MaximumMessageSize'
+return "Attribute other than VisibilityTimeout, QueueArn, or MaximumMessageSize exists"
+}
+&lt;/Result></path>
+                <content>&lt;Result/></content>
+                <allowWildcards>false</allowWildcards>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="AttributeName.1" value="VisibilityTimeout"/>
+              <con:entry key="AttributeName.2" value="MaximumMessageSize"/>
+              <con:entry key="AttributeName.3" value="QueueArn"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Get non-existant attribute">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="GetQueueAttributes" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Get non-existant attribute" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is error InvalidAttributeName">
+              <con:configuration>
+                <path>ErrorResponse/Error/Code</path>
+                <content>InvalidAttributeName</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="AttributeName.1" value="invalid" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Set Queue Attributes" searchProperties="true" id="8508245c-e7e7-4494-b767-ea45fcbb44b8">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Set Attribute MessageRetentionPeriod">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="SetQueueAttributes" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Set Attribute MessageRetentionPeriod" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is SetQueueAttributesResponse">
+              <con:configuration>
+                <path>exists(SetQueueAttributesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="Attribute.1.Value" value="60"/>
+              <con:entry key="Attribute.1.Name" value="MessageRetentionPeriod"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Get attributes to check value">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="GetQueueAttributes" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Get attributes to check value" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is GetQueueAttributesResponse">
+              <con:configuration>
+                <path>exists(GetQueueAttributesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="VisibilityTimeout=15">
+              <con:configuration>
+                <path>GetQueueAttributesResponse/GetQueueAttributesResult/Attribute[Name='MessageRetentionPeriod']/Value</path>
+                <content>60</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="AttributeName.1" value="MessageRetentionPeriod" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Check VisibilityTimeout works as specified" searchProperties="true" id="3a12b959-b9c4-4fdc-ae42-7a612fa7b037">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Send Message">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="SendMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Send Message" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is SendMessageResponse">
+              <con:configuration>
+                <path>exists(SendMessageResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Response has MD5OfMessageBody">
+              <con:configuration>
+                <path>exists(SendMessageResponse/SendMessageResult/MD5OfMessageBody)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Response shows MessageId">
+              <con:configuration>
+                <path>exists(SendMessageResponse/SendMessageResult/MessageId)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="MessageBody" value="testing timeout" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Receive message">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Receive message" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ReceiveMessageResponse">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Message &quot;testing messages&quot; is returned">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse/ReceiveMessageResult/Message[Body="testing timeout"])</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="delay" name="Delay for 10 seconds for VisibilityTimeout">
+        <con:settings/>
+        <con:config>
+          <delay>10000</delay>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Receive message (will fail if VisibilityTimeout is default)">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Receive message (will fail if VisibilityTimeout is default)" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ReceiveMessageResponse">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Message &quot;testing timeout&quot; is returned">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse/ReceiveMessageResult/Message[Body="testing timeout"])</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Check MessageRetentionPeriod attribute works as specified" searchProperties="true" id="a34a1373-8392-4fc5-9853-453708559d81">
+      <con:settings/>
+      <con:testStep type="delay" name="Delay for 10 seconds for timeout">
+        <con:settings/>
+        <con:config>
+          <delay>10000</delay>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Receive message">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Receive message" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ReceiveMessageResponse">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Message &quot;testing messages&quot; is returned">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse/ReceiveMessageResult/Message[Body="testing timeout"])</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="delay" name="Delay 60 seconds for Retention period">
+        <con:settings/>
+        <con:config>
+          <delay>60000</delay>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Receive message (should be expired)">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Receive message (should be expired)" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ReceiveMessageResponse">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Message is not received">
+              <con:configuration>
+                <path>exists(ReceiveMessageResponse/ReceiveMessageResult/Message[Body="testing timeout"])</path>
+                <content>false</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Delete the Queue" searchProperties="true" id="7c20aa2f-8dc1-46ca-a667-c73a22fc7e0e">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Delete Queue">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="DeleteQueue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Delete Queue" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is DeleteQueueResponse">
+              <con:configuration>
+                <path>exists(DeleteQueueResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="delay" name="Wait 1 minute for queue deletion">
+        <con:settings/>
+        <con:config>
+          <delay>60000</delay>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:properties/>
+  </con:testSuite>
+  <con:testSuite name="Queue Manual tests" disabled="true">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Create a Queue" searchProperties="true">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Create Queue 'msi-queue'">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="CreateQueue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Create Queue 'msi-queue'" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is CreateQueueResponse">
+              <con:configuration>
+                <path>exists(CreateQueueResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Queue URL exists in the response">
+              <con:configuration>
+                <path>exists(CreateQueueResponse/CreateQueueResult/QueueUrl)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="QueueName" value="msi-queue" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List Queues to check Existence of queue">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ListQueues" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List Queues to check Existence of queue" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="XPath Match">
+              <con:configuration>
+                <path>exists(ListQueuesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Queue URL is returned">
+              <con:configuration>
+                <path>ListQueuesResponse/ListQueuesResult/QueueUrl</path>
+                <content>http://*/SQSQuery/*/msi-queue</content>
+                <allowWildcards>true</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="QueueNamePrefix" value="msi-queue" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Add permissions" searchProperties="true">
+      <con:settings/>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SendMessage permission" searchProperties="true">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Add SendMessage permission">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="AddPermission" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Add SendMessage permission" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is AddPermissionResponse">
+              <con:configuration>
+                <path>exists(AddPermissionResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="ActionName.1" value="SendMessage"/>
+              <con:entry key="AWSAccountId.1" value="000000000002"/>
+              <con:entry key="Label" value="allow-send-message"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Send Message">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="SendMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Send Message" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Returns MD5OfMessageBody">
+              <con:configuration>
+                <path>exists(data(SendMessageResponse/SendMessageResult/MD5OfMessageBody))</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Returns MessageId">
+              <con:configuration>
+                <path>exists(data(SendMessageResponse/SendMessageResult/MessageId))</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="MessageBody" value="message from buildbot"/>
+              <con:entry key="AWSAccessKeyId" value="UZOIR7XKBG7OXF6O4XVWS"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Check send was successful">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Check send was successful" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Can see message">
+              <con:configuration>
+                <path>exists(//Message[Body='message from buildbot'])</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="VisibilityTimeout" value="0"/>
+              <con:entry key="MaxNumberOfMessages" value="10"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Remove permission">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="RemovePermission" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Remove permission" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="XPath Match">
+              <con:configuration>
+                <path>exists(RemovePermissionResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="Label" value="allow-send-message" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Attempt another send">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="SendMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Attempt another send" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="AccessDenied error">
+              <con:configuration>
+                <path>ErrorResponse/Error/Code</path>
+                <content>AccessDenied</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="MessageBody" value="message from buildbot that shouldn't work"/>
+              <con:entry key="AWSAccessKeyId" value="UZOIR7XKBG7OXF6O4XVWS"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ReceiveMessage permission" searchProperties="true">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Add ReceiveMessage permission">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="AddPermission" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Add ReceiveMessage permission" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is AddPermissionResponse">
+              <con:configuration>
+                <path>exists(AddPermissionResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="ActionName.1" value="ReceiveMessage"/>
+              <con:entry key="AWSAccountId.1" value="000000000002"/>
+              <con:entry key="Label" value="allow-receive-message"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Send Message">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="SendMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Send Message" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="MessageBody" value="testing permissions" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Receive Message buildbot">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Receive Message buildbot" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Can see message">
+              <con:configuration>
+                <path>exists(//Message[Body='testing permissions'])</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="AWSAccessKeyId" value="UZOIR7XKBG7OXF6O4XVWS"/>
+              <con:entry key="MaxNumberOfMessages" value="10"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Remove permission">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="RemovePermission" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Remove permission" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="XPath Match">
+              <con:configuration>
+                <path>exists(RemovePermissionResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="Label" value="allow-receive-message" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Attempt to receive message again">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Attempt to receive message again" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="AccessDenied error">
+              <con:configuration>
+                <path>ErrorResponse/Error/Code</path>
+                <content>AccessDenied</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="AWSAccessKeyId" value="UZOIR7XKBG7OXF6O4XVWS"/>
+              <con:entry key="MaxNumberOfMessages" value="10"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DeleteMessage permission" searchProperties="true">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Add DeleteMessage permission">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="AddPermission" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Add DeleteMessage permission" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is AddPermissionResponse">
+              <con:configuration>
+                <path>exists(AddPermissionResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="ActionName.1" value="DeleteMessage"/>
+              <con:entry key="AWSAccountId.1" value="000000000002"/>
+              <con:entry key="Label" value="allow-delete-message"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Receive messages to get receipt">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Receive messages to get receipt" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Can see message">
+              <con:configuration>
+                <path>exists(//Message[Body='message from buildbot'])</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="VisibilityTimeout" value="0"/>
+              <con:entry key="MaxNumberOfMessages" value="10"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="DeleteMessage">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="DeleteMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="DeleteMessage" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="XPath Match">
+              <con:configuration>
+                <path>exists(DeleteMessageResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="ReceiptHandle" value="9c0eb8f4-1340-49e6-9d47-4a04845b364b" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Remove permission">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="RemovePermission" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Remove permission" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="XPath Match">
+              <con:configuration>
+                <path>exists(RemovePermissionResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="Label" value="allow-delete-message" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Receive messages to get other receipt">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Receive messages to get other receipt" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Can see message">
+              <con:configuration>
+                <path>exists(//Message[Body='testing permissions'])</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="VisibilityTimeout" value="0"/>
+              <con:entry key="MaxNumberOfMessages" value="10"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Attempt another Delete">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="DeleteMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Attempt another Delete" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="AccessDenied error">
+              <con:configuration>
+                <path>ErrorResponse/Error/Code</path>
+                <content>AccessDenied</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="ReceiptHandle" value="9c0eb8f4-1340-49e6-9d47-4a04845b364b" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Change Message Visibility" searchProperties="true">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Send message to test with">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="SendMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Send message to test with" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Returns MD5OfMessageBody">
+              <con:configuration>
+                <path>exists(data(SendMessageResponse/SendMessageResult/MD5OfMessageBody))</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Returns MessageId">
+              <con:configuration>
+                <path>exists(data(SendMessageResponse/SendMessageResult/MessageId))</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="DelaySeconds" value="0"/>
+              <con:entry key="MessageBody" value="testing change visibility"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Receive message to get receipt">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Receive message to get receipt" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Can see message">
+              <con:configuration>
+                <path>exists(//Message[Body='testing change visibility'])</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="MaxNumberOfMessages" value="10" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Change Message Visibility">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ChangeMessageVisibility" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Change Message Visibility" mediaType="application/xml" accept="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="XPath Match">
+              <con:configuration>
+                <path>exists(ChangeMessageVisibilityResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="ReceiptHandle" value="47d729dd-6125-4472-a9fa-3b690cc41139"/>
+              <con:entry key="VisibilityTimeout" value="0"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Check if message is received">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Check if message is received" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Can see message">
+              <con:configuration>
+                <path>exists(//Message[Body='testing change visibility'])</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="MaxNumberOfMessages" value="10" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Check to ensure visibility went back to default">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ReceiveMessage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Check to ensure visibility went back to default" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/${#Project#AccountNumber}/msi-queue</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Can see message">
+              <con:configuration>
+                <path>exists(//Message[Body='testing change visibility'])</path>
+                <content>false</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="MaxNumberOfMessages" value="10" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="delay" name="Delay 30 seconds">
+        <con:settings/>
+        <con:config>
+          <delay>30000</delay>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Change message visibility batch">
+        <con:settings/>
+        <con:config service="SQS" resourcePath="" methodName="ChangeMessageVisibilityBatch" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Change message visibility batch" mediaType="application/xml">
+            <con:settings/>
+            <con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:properties/>
+  </con:testSuite>
+  <con:properties>
+    <con:property>
+      <con:name>ServiceEndpoint</con:name>
+      <con:value>http://devessex.momentumsoftware.com:8080/SQSQuery</con:value>
+    </con:property>
+    <con:property>
+      <con:name>AccountNumber</con:name>
+      <con:value>000000000026</con:value>
+    </con:property>
+    <con:property>
+      <con:name>AWSAccessKeyId</con:name>
+      <con:value>buildbot</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Version</con:name>
+      <con:value>2009-02-01</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Signature</con:name>
+      <con:value>asdfjjef2oiboEXAMPLE</con:value>
+    </con:property>
+    <con:property>
+      <con:name>SignatureVersion</con:name>
+      <con:value>2</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Expires</con:name>
+      <con:value>2009-04-18T22:52:43PST</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Timestamp</con:name>
+      <con:value>2012-08-16T22:52:43PST</con:value>
+    </con:property>
+    <con:property>
+      <con:name>SignatureMethod</con:name>
+      <con:value>HmacSHA256</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Suffix</con:name>
+      <con:value/>
+    </con:property>
+  </con:properties>
+  <con:wssContainer/>
+  <con:sensitiveInformation/>
+</con:soapui-project>

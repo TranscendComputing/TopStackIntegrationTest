@@ -1,0 +1,2604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="Topstack DNS53" resourceRoot="" soapui-version="4.5.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="TestSuite" value="DNS Tests"/>
+  <con:entry key="Report to Generate" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="soapui-setings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Save Project" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="TestCase" value="Create Hosted Zone"/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="Endpoint" value=""/>
+</xml-fragment>]]></con:setting>
+  </con:settings>
+  <con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="DNS53" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/invalid</con:endpoint>
+      <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/change/${#Project#ChangeId}</con:endpoint>
+      <con:endpoint>route53.amazonaws.com/</con:endpoint>
+    </con:endpoints>
+    <con:resource name="Hosted Zone actions" path="">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="CreateHostedZone" method="POST">
+        <con:settings>
+          <con:setting id="RecordResponseRepresentations">false</con:setting>
+        </con:settings>
+        <con:parameters/>
+        <con:representation type="REQUEST">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:params/>
+          <con:element xmlns:ns="https://route53.amazonaws.com/doc/2012-02-29/">ns:CreateHostedZoneRequest</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:request name="Request 1" mediaType="text/xml" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value=""/>
+  <con:entry key="Host" value=""/>
+  <con:entry key="Date" value=""/>
+  <con:entry key="Content-Length" value=""/>
+</xml-fragment>]]></con:setting>
+            <con:setting id="RecordRequestRepresentations">false</con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone</con:endpoint>
+          <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <Name>test-hosted-domain</Name>
+   <CallerReference>Hosted domain used for testing</CallerReference>
+   <HostedZoneConfig>
+      <Comment>no comment</Comment>
+   </HostedZoneConfig>
+</CreateHostedZoneRequest>]]></con:request>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="GetHostedZones" method="GET">
+        <con:settings>
+          <con:setting id="RecordResponseRepresentations">false</con:setting>
+        </con:settings>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:request name="Request 1" mediaType="application/xml">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="DeleteHostedZone" method="DELETE">
+        <con:settings>
+          <con:setting id="RecordResponseRepresentations">false</con:setting>
+        </con:settings>
+        <con:parameters/>
+        <con:request name="Request 1" mediaType="application/xml">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value=""/>
+  <con:entry key="Host" value=""/>
+  <con:entry key="Date" value=""/>
+  <con:entry key="Content-Length" value=""/>
+  <con:entry key="Content-Type" value=""/>
+</xml-fragment>]]></con:setting>
+            <con:setting id="RecordRequestRepresentations">false</con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="ListHostedZones" method="GET">
+        <con:settings>
+          <con:setting id="RecordResponseRepresentations">false</con:setting>
+        </con:settings>
+        <con:parameters>
+          <con:parameter>
+            <con:name>marker</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>maxitems</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="Request 1" mediaType="application/xml">
+          <con:settings>
+            <con:setting id="RecordRequestRepresentations">false</con:setting>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  <con:entry key="Host" value="${#Project#host}"/>
+  <con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+  <con:entry key="Content-Length" value=""/>
+  <con:entry key="Content-Type" value="text/xml"/>
+</xml-fragment>]]></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="Resource Record sets Actions" path="">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="ChangeResourceRecordSets" method="POST">
+        <con:settings>
+          <con:setting id="RecordResponseRepresentations">false</con:setting>
+        </con:settings>
+        <con:parameters/>
+        <con:request name="Request 1" mediaType="application/xml" postQueryString="false">
+          <con:settings>
+            <con:setting id="RecordRequestRepresentations">false</con:setting>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}/rrset</con:endpoint>
+          <con:request><![CDATA[POST /2012-02-29/hostedzone/Route 53 hosted zone ID/rrset HTTP/1.1
+<?xml version="1.0" encoding="UTF-8"?>
+<ChangeResourceRecordSetsRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <ChangeBatch>
+      <Comment>
+      testing create
+      </Comment>
+      <Changes>
+         <Change>
+            <Action>CREATE</Action>
+            <ResourceRecordSet>
+               <Name>transcenddev2.com.</Name>
+               <Type>TXT</Type>
+               <TTL>600</TTL>
+               <ResourceRecords>
+                  <ResourceRecord>
+                     <Value>"test1" "test2" "test3"</Value>
+                  </ResourceRecord>
+               </ResourceRecords>
+            </ResourceRecordSet>
+         </Change>
+      </Changes>
+   </ChangeBatch>
+</ChangeResourceRecordSetsRequest>]]></con:request>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="ListResourceRecordSets" method="GET">
+        <con:settings>
+          <con:setting id="RecordResponseRepresentations">false</con:setting>
+        </con:settings>
+        <con:parameters>
+          <con:parameter>
+            <con:name>name</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>type</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>identifier</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>maxitems</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+            <con:default/>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="Request 1" mediaType="application/xml">
+          <con:settings>
+            <con:setting id="RecordRequestRepresentations">false</con:setting>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}/rrset</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="GetChange" method="GET">
+        <con:settings>
+          <con:setting id="RecordResponseRepresentations">false</con:setting>
+        </con:settings>
+        <con:parameters/>
+        <con:request name="Request 1" mediaType="application/xml">
+          <con:settings>
+            <con:setting id="RecordRequestRepresentations">false</con:setting>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  <con:entry key="Date" value=""/>
+  <con:entry key="Host" value=""/>
+  <con:entry key="Content-Type" value=""/>
+</xml-fragment>]]></con:setting>
+          </con:settings>
+          <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/change/C532B19965F684882A56EAD9D739932DD</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>Global HTTP Settings</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite name="DNS Tests">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Create Hosted Zone" searchProperties="true" id="ecf371c7-7994-4e0b-9134-cf3e216159b9">
+      <con:settings/>
+      <con:testStep type="restrequest" name="CreateHostedZone with bad domain value" disabled="true">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="CreateHostedZone" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="CreateHostedZone with bad domain value" mediaType="text/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  <con:entry key="Host" value="${#Project#host}"/>
+  <con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+  <con:entry key="Content-Type" value="text/xml"/>
+</xml-fragment>]]></con:setting>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <Name>invalid</Name>
+   <CallerReference>msitest</CallerReference>
+   <HostedZoneConfig>
+      <Comment>no comment</Comment>
+   </HostedZoneConfig>
+</CreateHostedZoneRequest>]]></con:request>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Create Hosted Zone">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="CreateHostedZone" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Create Hosted Zone" mediaType="text/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  &lt;con:entry key="Host" value="${#Project#host}"/>
+  &lt;con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+&lt;/xml-fragment></con:setting>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <Name>transcenddev.com</Name>
+   <CallerReference>msitest</CallerReference>
+   <HostedZoneConfig>
+      <Comment>no comment</Comment>
+   </HostedZoneConfig>
+</CreateHostedZoneRequest>]]></con:request>
+            <con:assertion type="XPath Match" name="Response is CreateHostedZoneResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Returns HostedZone Id">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="HostedZone Name=transcenddev.com">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:Name</path>
+                <content>transcenddev.com</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="CallerReference=msitest">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:CallerReference</path>
+                <content>msitest</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Comment is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:Config/ns1:Comment</path>
+                <content>no comment</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ResourceRecordSetCount is returned" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:ResourceRecordSetCount)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ChangeInfo Id is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:ChangeInfo/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ChangeInfo Status=PENDING">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:ChangeInfo/ns1:Status</path>
+                <content>PENDING</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ChangeInfo SubmittedAt data is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:ChangeInfo/ns1:SubmittedAt)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="DelegationSet is returned and has entries">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:DelegationSet/ns1:NameServers/ns1:NameServer)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="Property transfer for ZoneID">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false" disabled="false">
+            <con:name>ZoneId</con:name>
+            <con:sourceType>Response</con:sourceType>
+            <con:sourceStep>Create Hosted Zone</con:sourceStep>
+            <con:sourcePath>declare namespace ns1="https://route53.amazonaws.com/doc/2012-02-29/";
+//ns1:HostedZone/ns1:Id</con:sourcePath>
+            <con:targetType>ZoneId</con:targetType>
+            <con:targetStep>#Project#</con:targetStep>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Attempt creation of duplicate hosted zone" searchProperties="true" id="b84ef416-ca46-4f16-bd8a-1a4cc4426d07">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Attempt to create duplicate hosted zone">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="CreateHostedZone" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Attempt to create duplicate hosted zone" mediaType="text/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  &lt;con:entry key="Host" value="${#Project#host}"/>
+  &lt;con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+&lt;/xml-fragment></con:setting>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <Name>transcenddev.com</Name>
+   <CallerReference>msitest</CallerReference>
+   <HostedZoneConfig>
+      <Comment>no comment</Comment>
+   </HostedZoneConfig>
+</CreateHostedZoneRequest>]]></con:request>
+            <con:assertion type="XPath Match" name="Gives an error back">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ErrorResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="List hosted zones" searchProperties="true" id="ec13ea97-48b5-495a-bd6f-5b3cbd98005a">
+      <con:settings/>
+      <con:testStep type="restrequest" name="LIst Hosted Zones">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ListHostedZones" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="LIst Hosted Zones" mediaType="text/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  <con:entry key="Host" value="${#Project#host}"/>
+  <con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+  <con:entry key="Content-Type" value="text/xml"/>
+</xml-fragment>]]></con:setting>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <Name>transcenddev.com</Name>
+   <CallerReference>asaenztest</CallerReference>
+   <HostedZoneConfig>
+      <Comment>no comment</Comment>
+   </HostedZoneConfig>
+</CreateHostedZoneRequest>]]></con:request>
+            <con:assertion type="XPath Match" name="Response is CreateHostedZoneResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ListHostedZonesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Id value is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(//ns1:HostedZone/ns1:Id/text())</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="HostedZone name is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(//ns1:HostedZone/ns1:Name/text())</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Name=transcenddev.com">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+//ns1:HostedZone/ns1:Name/text()</path>
+                <content>transcenddev.com.</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Create another hosted zone (for listing multiple zones)">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="CreateHostedZone" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Create another hosted zone (for listing multiple zones)" mediaType="text/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  &lt;con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+  &lt;con:entry key="Host" value="${#Project#host}"/>
+&lt;/xml-fragment></con:setting>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <Name>transcenddev2.com</Name>
+   <CallerReference>msitest2</CallerReference>
+   <HostedZoneConfig>
+      <Comment>no comment</Comment>
+   </HostedZoneConfig>
+</CreateHostedZoneRequest>]]></con:request>
+            <con:assertion type="XPath Match" name="Response is CreateHostedZoneResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Returns HostedZone Id" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="HostedZone Name=transcenddev.com" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:Name</path>
+                <content>transcenddev2.com</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="CallerReference=msitest" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:CallerReference</path>
+                <content>msitest2</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Comment is returned" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:Config/ns1:Comment</path>
+                <content>no comment</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ResourceRecordSetCount is returned" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:ResourceRecordSetCount)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ChangeInfo Id is returned" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:ChangeInfo/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ChangeInfo Status=PENDING" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:ChangeInfo/ns1:Status</path>
+                <content>PENDING</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ChangeInfo SubmittedAt data is returned" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:ChangeInfo/ns1:SubmittedAt)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="DelegationSet is returned and has entries" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:DelegationSet/ns1:NameServers/ns1:NameServer)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="Property transfer for ZoneID2">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false" disabled="false">
+            <con:name>ZoneId</con:name>
+            <con:sourceType>Response</con:sourceType>
+            <con:sourceStep>Create another hosted zone (for listing multiple zones)</con:sourceStep>
+            <con:sourcePath>declare namespace ns1="https://route53.amazonaws.com/doc/2012-02-29/";
+//ns1:HostedZone/ns1:Id</con:sourcePath>
+            <con:targetType>ZoneId2</con:targetType>
+            <con:targetStep>#Project#</con:targetStep>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List hosted zones (multiple zones)">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ListHostedZones" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List hosted zones (multiple zones)" mediaType="text/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  <con:entry key="Host" value="${#Project#host}"/>
+  <con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+  <con:entry key="Content-Type" value="text/xml"/>
+</xml-fragment>]]></con:setting>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <Name>transcenddev.com</Name>
+   <CallerReference>asaenztest</CallerReference>
+   <HostedZoneConfig>
+      <Comment>no comment</Comment>
+   </HostedZoneConfig>
+</CreateHostedZoneRequest>]]></con:request>
+            <con:assertion type="XPath Match" name="Response is CreateHostedZoneResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ListHostedZonesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XQuery Match" name="Both entries are returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+&lt;AtLeastTwoEntries>
+{
+let $x:=//ns1:HostedZone
+return count($x)>=2
+}
+&lt;/AtLeastTwoEntries></path>
+                <content>&lt;AtLeastTwoEntries>true&lt;/AtLeastTwoEntries></content>
+                <allowWildcards>false</allowWildcards>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List hosted zones(maxitems=1)">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ListHostedZones" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List hosted zones(maxitems=1)" mediaType="text/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  <con:entry key="Host" value="${#Project#host}"/>
+  <con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+  <con:entry key="Content-Type" value="text/xml"/>
+</xml-fragment>]]></con:setting>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <Name>transcenddev.com</Name>
+   <CallerReference>asaenztest</CallerReference>
+   <HostedZoneConfig>
+      <Comment>no comment</Comment>
+   </HostedZoneConfig>
+</CreateHostedZoneRequest>]]></con:request>
+            <con:assertion type="XPath Match" name="Response is CreateHostedZoneResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ListHostedZonesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XQuery Match" name="Only 1 entry is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+&lt;Count>
+{
+let $x:=//ns1:HostedZone
+return count($x)
+}
+&lt;/Count></path>
+                <content>&lt;Count>1&lt;/Count></content>
+                <allowWildcards>false</allowWildcards>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="IsTruncated=true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:ListHostedZonesResponse/ns1:IsTruncated</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="maxitems" value="1" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="Copy Marker">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false" disabled="false">
+            <con:name>ZoneId</con:name>
+            <con:sourceType>Response</con:sourceType>
+            <con:sourceStep>List hosted zones(maxitems=1)</con:sourceStep>
+            <con:sourcePath>declare namespace ns1="https://route53.amazonaws.com/doc/2012-02-29/";
+ns1:ListHostedZonesResponse/ns1:NextMarker</con:sourcePath>
+            <con:targetType>marker</con:targetType>
+            <con:targetStep>List hosted zones(with specified marker)</con:targetStep>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List hosted zones(with specified marker)">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ListHostedZones" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List hosted zones(with specified marker)" mediaType="text/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  <con:entry key="Host" value="${#Project#host}"/>
+  <con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+  <con:entry key="Content-Type" value="text/xml"/>
+</xml-fragment>]]></con:setting>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <Name>transcenddev.com</Name>
+   <CallerReference>asaenztest</CallerReference>
+   <HostedZoneConfig>
+      <Comment>no comment</Comment>
+   </HostedZoneConfig>
+</CreateHostedZoneRequest>]]></con:request>
+            <con:assertion type="XPath Match" name="Response is CreateHostedZoneResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ListHostedZonesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XQuery Match" name="Only 1 entry is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+&lt;Count>
+{
+let $x:=//ns1:HostedZone
+return count($x)
+}
+&lt;/Count></path>
+                <content>&lt;Count>1&lt;/Count></content>
+                <allowWildcards>false</allowWildcards>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="IsTruncated=false" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:ListHostedZonesResponse/ns1:IsTruncated</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="marker" value="ZFEAC470AA49546A989FDA4727572C659"/>
+              <con:entry key="maxitems" value="1"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Get Hosted Zones" searchProperties="true" id="47324851-87cb-425e-92ee-032012aae676">
+      <con:settings/>
+      <con:testStep type="restrequest" name="GetHostedZones basic call">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="GetHostedZones" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="GetHostedZones basic call" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Id value is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:GetHostedZoneResponse/ns1:HostedZone/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Name=transcenddev.com">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:GetHostedZoneResponse/ns1:HostedZone/ns1:Name</path>
+                <content>transcenddev.com.</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="CallerReference=msitest">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:GetHostedZoneResponse/ns1:HostedZone/ns1:CallerReference</path>
+                <content>msitest</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Comment is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:GetHostedZoneResponse/ns1:HostedZone/ns1:Config/ns1:Comment</path>
+                <content>no comment</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="XPath Match">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:GetHostedZoneResponse/ns1:DelegationSet/ns1:NameServers/ns1:NameServer)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Attempt to get nonexistant HostedZone" searchProperties="true" id="94641b86-bbaa-4e9f-ad3b-925eaf740fb7">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Get hosted zone that doesn't exist">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="GetHostedZones" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Get hosted zone that doesn't exist" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/invalid</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Error is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ErrorResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="List Record Sets" searchProperties="true" id="f7c8ffaf-6861-45b8-a0a3-7ebad9eee6c3">
+      <con:settings/>
+      <con:testStep type="restrequest" name="ListResourceRecordSets with defaults">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ListResourceRecordSets" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="ListResourceRecordSets with defaults" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}/rrset</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ListResourceRecordSetsResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ListResourceRecordSetsResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Response contains ResourceRecordSets">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ListResourceRecordSetsResponse/ns1:ResourceRecordSets/ns1:ResourceRecordSet)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="ListResourceRecordSets with maxitems=1">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ListResourceRecordSets" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="ListResourceRecordSets with maxitems=1" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}/rrset</con:endpoint>
+            <con:request/>
+            <con:assertion type="XQuery Match" name="Only 1 Item is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+&lt;Count>
+{
+let $x:=//ns1:ResourceRecordSet
+return count($x)
+}
+&lt;/Count></path>
+                <content>&lt;Count>1&lt;/Count></content>
+                <allowWildcards>false</allowWildcards>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ResourceRecordSet Name is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(//ns1:ResourceRecordSet/ns1:Name)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ResourceRecordSet TTL is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(//ns1:ResourceRecordSet/ns1:TTL)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ResourceRecordSet Type is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(//ns1:ResourceRecordSet/ns1:Type)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ResourceRecord Value is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(//ns1:ResourceRecordSet/ns1:ResourceRecords/ns1:ResourceRecord/ns1:Value)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="IsTruncated=true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:ListResourceRecordSetsResponse/ns1:IsTruncated</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="MaxItems=1">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:ListResourceRecordSetsResponse/ns1:MaxItems</path>
+                <content>1</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="maxitems" value="1" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List with specified name">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ListResourceRecordSets" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List with specified name" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}/rrset</con:endpoint>
+            <con:request/>
+            <con:assertion type="XQuery Match" name="All items returned have name=transcenddev.com">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+&lt;Count>
+{
+let $x:=//ns1:ResourceRecordSet
+where data($x/ns1:Name) != "transcenddev.com."
+return count($x)
+}
+&lt;/Count></path>
+                <content>&lt;Count/></content>
+                <allowWildcards>false</allowWildcards>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Valid HTTP Status Codes" name="Good Request (HTTP Code 200)">
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="name" value="transcenddev.com" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List with name+type">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ListResourceRecordSets" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List with name+type" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}/rrset</con:endpoint>
+            <con:request/>
+            <con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes">
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XQuery Match" name="All items returned have Name=ns0.transcenddev.com">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+&lt;Count>
+{
+let $x:=//ns1:ResourceRecordSet
+where data($x/ns1:Name) != "ns0.transcenddev.com."
+return count($x)
+}
+&lt;/Count></path>
+                <content>&lt;Count/></content>
+                <allowWildcards>false</allowWildcards>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XQuery Match" name="All items returned have Type=A">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+&lt;Count>
+{
+let $x:=//ns1:ResourceRecordSet
+where data($x/ns1:Type) != "A"
+return count($x)
+}
+&lt;/Count></path>
+                <content>&lt;Count/></content>
+                <allowWildcards>false</allowWildcards>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="name" value="ns0.transcenddev.com"/>
+              <con:entry key="type" value="A"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List with type, but not name">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ListResourceRecordSets" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List with type, but not name" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}/rrset</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Error is InvalidInput">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:ErrorResponse/ns1:Error/ns1:Code</path>
+                <content>InvalidInput</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="type" value="A" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Change Record Set (create TXT basic)" searchProperties="true" id="fb79fe16-adb3-4ab9-8369-906b21df09af">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Create TXT record set">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ChangeResourceRecordSets" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Create TXT record set" mediaType="application/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}/rrset</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<ChangeResourceRecordSetsRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <ChangeBatch>
+      <Comment>
+      testing create
+      </Comment>
+      <Changes>
+         <Change>
+            <Action>CREATE</Action>
+            <ResourceRecordSet>
+               <Name>transcenddev.com.</Name>
+               <Type>TXT</Type>
+               <TTL>600</TTL>
+               <ResourceRecords>
+                  <ResourceRecord>
+                     <Value>test1 test2 test3</Value>
+                  </ResourceRecord>
+               </ResourceRecords>
+            </ResourceRecordSet>
+         </Change>
+      </Changes>
+   </ChangeBatch>
+</ChangeResourceRecordSetsRequest>]]></con:request>
+            <con:assertion type="XPath Match" name="Response is ChangeResourceRecordSetsResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Id is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse/ns1:ChangeInfo/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Status is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse/ns1:ChangeInfo/ns1:Status)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="SubmittedAt value returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse/ns1:ChangeInfo/ns1:SubmittedAt)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List to check TXT record was added">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ListResourceRecordSets" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List to check TXT record was added" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}/rrset</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ListResourceRecordSetsResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ListResourceRecordSetsResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Name=transcenddev.com.">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+//ns1:Name</path>
+                <content>transcenddev.com.</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Type=TXT">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+//ns1:Type</path>
+                <content>TXT</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="TTL=600">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+//ns1:TTL</path>
+                <content>600</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ResourceRecordValue is correct">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+//ns1:ResourceRecordSet/ns1:ResourceRecords/ns1:ResourceRecord/ns1:Value</path>
+                <content>test1 test2 test3</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="name" value="transcenddev.com."/>
+              <con:entry key="type" value="TXT"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Delete TXT Record set">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ChangeResourceRecordSets" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Delete TXT Record set" mediaType="application/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}/rrset</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<ChangeResourceRecordSetsRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <ChangeBatch>
+      <Comment>
+      testing create
+      </Comment>
+      <Changes>
+         <Change>
+            <Action>DELETE</Action>
+            <ResourceRecordSet>
+               <Name>transcenddev.com.</Name>
+               <Type>TXT</Type>
+               <TTL>600</TTL>
+               <ResourceRecords>
+                  <ResourceRecord>
+                     <Value>test1 test2 test3</Value>
+                  </ResourceRecord>
+               </ResourceRecords>
+            </ResourceRecordSet>
+         </Change>
+      </Changes>
+   </ChangeBatch>
+</ChangeResourceRecordSetsRequest>]]></con:request>
+            <con:assertion type="XPath Match" name="Response is ChangResourceRecordSetsResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Value for Id is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse/ns1:ChangeInfo/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Value for Status is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse/ns1:ChangeInfo/ns1:Status)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="SubmittedAt value is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse/ns1:ChangeInfo/ns1:SubmittedAt)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="Property transfer for ChangeId">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false" disabled="false">
+            <con:name>ChangeId</con:name>
+            <con:sourceType>Response</con:sourceType>
+            <con:sourceStep>Delete TXT Record set</con:sourceStep>
+            <con:sourcePath>declare namespace ns1="https://route53.amazonaws.com/doc/2012-02-29/";
+//ns1:ChangeInfo/ns1:Id</con:sourcePath>
+            <con:targetType>ChangeId</con:targetType>
+            <con:targetStep>#Project#</con:targetStep>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List to check TXT record was deleted">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ListResourceRecordSets" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List to check TXT record was deleted" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}/rrset</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ListResourceRecordSetsResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ListResourceRecordSetsResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="XPath Match">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(//ns1:ResourceRecordSets/ns1:ResourceRecordSet[ns1:Name="transcenddev.com."])</path>
+                <content>false</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="name" value="transcenddev.com."/>
+              <con:entry key="type" value="TXT"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Get Change">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="GetChange" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Get Change" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  <con:entry key="Date" value=""/>
+  <con:entry key="Host" value=""/>
+  <con:entry key="Content-Type" value=""/>
+</xml-fragment>]]></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/change/${#Project#ChangeId}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Change Id is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:GetChangeResponse/ns1:ChangeInfo/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Change Status is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:GetChangeResponse/ns1:ChangeInfo/ns1:Status)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="SubmittedAt is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:GetChangeResponse/ns1:ChangeInfo/ns1:SubmittedAt)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Change Record Set (Alias)" searchProperties="true" disabled="true">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Create Hosted Zone (example LB)">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="CreateHostedZone" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Create Hosted Zone (example LB)" mediaType="text/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  &lt;con:entry key="Host" value="${#Project#host}"/>
+  &lt;con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+&lt;/xml-fragment></con:setting>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <Name>lb.transcenddev.com</Name>
+   <CallerReference>fake_lb</CallerReference>
+   <HostedZoneConfig>
+      <Comment>no comment</Comment>
+   </HostedZoneConfig>
+</CreateHostedZoneRequest>]]></con:request>
+            <con:assertion type="XPath Match" name="Response is CreateHostedZoneResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Returns HostedZone Id">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="HostedZone Name=transcenddev.com">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:Name</path>
+                <content>transcenddev.com</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="CallerReference=msitest">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:CallerReference</path>
+                <content>msitest</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Comment is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:Config/ns1:Comment</path>
+                <content>no comment</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ResourceRecordSetCount is returned" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:ResourceRecordSetCount)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ChangeInfo Id is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:ChangeInfo/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ChangeInfo Status=PENDING">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:ChangeInfo/ns1:Status</path>
+                <content>PENDING</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ChangeInfo SubmittedAt data is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:ChangeInfo/ns1:SubmittedAt)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="DelegationSet is returned and has entries">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:DelegationSet/ns1:NameServers/ns1:NameServer)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="LIst Hosted Zones to get Fake Load Balancer DNS">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ListHostedZones" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="LIst Hosted Zones to get Fake Load Balancer DNS" mediaType="text/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  <con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+  <con:entry key="Host" value="${#Project#host}"/>
+  <con:entry key="Content-Type" value="text/xml"/>
+</xml-fragment>]]></con:setting>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <Name>transcenddev.com</Name>
+   <CallerReference>asaenztest</CallerReference>
+   <HostedZoneConfig>
+      <Comment>no comment</Comment>
+   </HostedZoneConfig>
+</CreateHostedZoneRequest>]]></con:request>
+            <con:assertion type="XPath Match" name="Response is CreateHostedZoneResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ListHostedZonesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Id value is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(//ns1:HostedZone/ns1:Id/text())</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="HostedZone name is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(//ns1:HostedZone/ns1:Name/text())</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Name=transcenddev.com">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+//ns1:HostedZone/ns1:Name/text()</path>
+                <content>transcenddev.com</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Create Alias record set">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ChangeResourceRecordSets" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Create Alias record set" mediaType="application/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}/rrset</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<ChangeResourceRecordSetsRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <ChangeBatch>
+      <Comment>
+      testing alias sets with fake LB dns
+      </Comment>
+      <Changes>
+         <Change>
+            <Action>CREATE</Action>
+            <ResourceRecordSet>
+               <Name>fakelb.transcenddev.com</Name>
+               <Type>A</Type>
+               <TTL>600</TTL>
+               <ResourceRecords>
+                  <AliasTarget>
+                     <HostedZoneId>0384184E8CEE45D291154612A15EFA9A</HostedZoneId>
+                     <DNSName>lb.transcenddev.com</DNSName>
+                  </AliasTarget>
+               </ResourceRecords>
+            </ResourceRecordSet>
+         </Change>
+      </Changes>
+   </ChangeBatch>
+</ChangeResourceRecordSetsRequest>]]></con:request>
+            <con:assertion type="XPath Match" name="Response is ChangeResourceRecordSetsResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Id is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse/ns1:ChangeInfo/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Status is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse/ns1:ChangeInfo/ns1:Status)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="SubmittedAt value returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse/ns1:ChangeInfo/ns1:SubmittedAt)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List to check A record was added">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ListResourceRecordSets" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List to check A record was added" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}/rrset</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ListResourceRecordSetsResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ListResourceRecordSetsResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Name=transcenddev.com.">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+//ns1:Name</path>
+                <content>transcenddev.com.</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Type=TXT">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+//ns1:Type</path>
+                <content>TXT</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="TTL=600">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+//ns1:TTL</path>
+                <content>600</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ResourceRecordValue is correct">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+//ns1:ResourceRecordSet/ns1:ResourceRecords/ns1:ResourceRecord/ns1:Value</path>
+                <content>test1 test2 test3</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="name" value="lb.transcenddev.com" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Delete A Record set">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ChangeResourceRecordSets" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Delete A Record set" mediaType="application/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}/rrset</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<ChangeResourceRecordSetsRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <ChangeBatch>
+      <Comment>
+      testing create
+      </Comment>
+      <Changes>
+         <Change>
+            <Action>DELETE</Action>
+            <ResourceRecordSet>
+               <Name>transcenddev.com.</Name>
+               <Type>TXT</Type>
+               <TTL>600</TTL>
+               <ResourceRecords>
+                  <ResourceRecord>
+                     <Value>test1 test2 test3</Value>
+                  </ResourceRecord>
+               </ResourceRecords>
+            </ResourceRecordSet>
+         </Change>
+      </Changes>
+   </ChangeBatch>
+</ChangeResourceRecordSetsRequest>]]></con:request>
+            <con:assertion type="XPath Match" name="Response is ChangResourceRecordSetsResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Value for Id is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse/ns1:ChangeInfo/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Value for Status is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse/ns1:ChangeInfo/ns1:Status)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="SubmittedAt value is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ChangeResourceRecordSetsResponse/ns1:ChangeInfo/ns1:SubmittedAt)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List to check A record was deleted">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ListResourceRecordSets" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List to check A record was deleted" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}/rrset</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response is ListResourceRecordSetsResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ListResourceRecordSetsResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="XPath Match">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(//ns1:ResourceRecordSets/ns1:ResourceRecordSet[ns1:Name="transcenddev.com."])</path>
+                <content>false</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="name" value="transcenddev.com."/>
+              <con:entry key="type" value="TXT"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Get Change">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="GetChange" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Get Change" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  <con:entry key="Host" value=""/>
+  <con:entry key="Date" value=""/>
+  <con:entry key="Content-Type" value=""/>
+</xml-fragment>]]></con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/change/CB6CE1D5F6EFA492784AD338505685621</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Change Id is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:GetChangeResponse/ns1:ChangeInfo/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Change Status is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:GetChangeResponse/ns1:ChangeInfo/ns1:Status)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="SubmittedAt is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:GetChangeResponse/ns1:ChangeInfo/ns1:SubmittedAt)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="DELETE">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="CreateHostedZone" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="DELETE" mediaType="text/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  &lt;con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+  &lt;con:entry key="Host" value="${#Project#host}"/>
+&lt;/xml-fragment></con:setting>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <Name>fakestuff.transcenddev.com</Name>
+   <CallerReference>fake-name</CallerReference>
+   <HostedZoneConfig>
+      <Comment>no comment</Comment>
+   </HostedZoneConfig>
+</CreateHostedZoneRequest>]]></con:request>
+            <con:assertion type="XPath Match" name="Response is CreateHostedZoneResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Returns HostedZone Id">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="HostedZone Name=transcenddev.com">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:Name</path>
+                <content>transcenddev.com</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="CallerReference=msitest">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:CallerReference</path>
+                <content>msitest</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Comment is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:Config/ns1:Comment</path>
+                <content>no comment</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ResourceRecordSetCount is returned" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:HostedZone/ns1:ResourceRecordSetCount)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ChangeInfo Id is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:ChangeInfo/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ChangeInfo Status=PENDING">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:CreateHostedZoneResponse/ns1:ChangeInfo/ns1:Status</path>
+                <content>PENDING</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="ChangeInfo SubmittedAt data is returned">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:ChangeInfo/ns1:SubmittedAt)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="DelegationSet is returned and has entries">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:CreateHostedZoneResponse/ns1:DelegationSet/ns1:NameServers/ns1:NameServer)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Delete Hosted Zone" searchProperties="true" id="449fab17-b965-4cd7-a127-ed2d8cd4ad1e">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Delete main Hosted Zone">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="DeleteHostedZone" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Delete main Hosted Zone" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  <con:entry key="Host" value=""/>
+  <con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+  <con:entry key="Content-Type" value=""/>
+</xml-fragment>]]></con:setting>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response shows Id">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:DeleteHostedZoneResponse/ns1:ChangeInfo/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Response shows Status">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:DeleteHostedZoneResponse/ns1:ChangeInfo/ns1:Status)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Response shows SubmittedAt data">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:DeleteHostedZoneResponse/ns1:ChangeInfo/ns1:SubmittedAt)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Delete extra hosted zone">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="DeleteHostedZone" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Delete extra hosted zone" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  <con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+  <con:entry key="Host" value=""/>
+  <con:entry key="Content-Type" value=""/>
+</xml-fragment>]]></con:setting>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/${#Project#ZoneId2}</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Response shows Id" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:DeleteHostedZoneResponse/ns1:ChangeInfo/ns1:Id)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Response shows Status" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:DeleteHostedZoneResponse/ns1:ChangeInfo/ns1:Status)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="Response shows SubmittedAt data" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:DeleteHostedZoneResponse/ns1:ChangeInfo/ns1:SubmittedAt)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="manualTestStep" name="Ensure all zones deleted">
+        <con:description>make sure all zones have been deleted</con:description>
+        <con:settings/>
+        <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      </con:testStep>
+      <con:testStep type="restrequest" name="List zones to ensure deletion">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="ListHostedZones" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="List zones to ensure deletion" mediaType="text/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  <con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+  <con:entry key="Host" value="${#Project#host}"/>
+  <con:entry key="Content-Type" value="text/xml"/>
+</xml-fragment>]]></con:setting>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<CreateHostedZoneRequest xmlns="https://route53.amazonaws.com/doc/2012-02-29/">
+   <Name>transcenddev.com</Name>
+   <CallerReference>asaenztest</CallerReference>
+   <HostedZoneConfig>
+      <Comment>no comment</Comment>
+   </HostedZoneConfig>
+</CreateHostedZoneRequest>]]></con:request>
+            <con:assertion type="XPath Match" name="Response is CreateHostedZoneResponse">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(ns1:ListHostedZonesResponse)</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="msitest callerReferenced Zone No longer exists">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(//ns1:HostedZone[ns1:CallerReference='msitest'])</path>
+                <content>false</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" name="msitest2 callerReferenced Zone No longer exists" disabled="true">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+exists(//ns1:HostedZone[ns1:CallerReference='msitest2'])</path>
+                <content>false</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Attempt deletion on Zone that doesn't exist" searchProperties="true" id="f7a551a2-88d9-4aa1-8170-bd68b7fa4758">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Delete Zone that doesn't exist">
+        <con:settings/>
+        <con:config service="DNS53" resourcePath="" methodName="DeleteHostedZone" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Delete Zone that doesn't exist" mediaType="application/xml">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="x-amz-date" value=""/>
+  <con:entry key="X-Amzn-Authorization" value="AWS3-HTTPS AWSAccessKeyId=${#Project#AWSAccessKeyId}"/>
+  <con:entry key="Date" value="Sun, 06 Nov 1994 08:49:37 GMT"/>
+  <con:entry key="Host" value=""/>
+  <con:entry key="Content-Type" value=""/>
+</xml-fragment>]]></con:setting>
+              <con:setting id="RecordRequestRepresentations">false</con:setting>
+            </con:settings>
+            <con:endpoint>${#Project#ServiceEndpoint}/2012-02-29/hostedzone/invalid</con:endpoint>
+            <con:request/>
+            <con:assertion type="XPath Match" name="Returns AccessDenied error">
+              <con:configuration>
+                <path>declare namespace ns1='https://route53.amazonaws.com/doc/2012-02-29/';
+ns1:ErrorResponse/ns1:Error/ns1:Code</path>
+                <content>NoSuchHostedZone</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:properties>
+      <con:property>
+        <con:name>PropertyName</con:name>
+        <con:value>Blah</con:value>
+      </con:property>
+    </con:properties>
+  </con:testSuite>
+  <con:properties>
+    <con:property>
+      <con:name>ServiceEndpoint</con:name>
+      <con:value>http://172.31.255.5:8080/DNS53Server</con:value>
+    </con:property>
+    <con:property>
+      <con:name>AWSAccessKeyId</con:name>
+      <con:value>buildbot</con:value>
+    </con:property>
+    <con:property>
+      <con:name>host</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>ZoneId</con:name>
+      <con:value>ZBD1491F63D5F489F92C99AE1134EDA2D</con:value>
+    </con:property>
+    <con:property>
+      <con:name>ZoneId2</con:name>
+      <con:value>ZFEAC470AA49546A989FDA4727572C659</con:value>
+    </con:property>
+    <con:property>
+      <con:name>ChangeId</con:name>
+      <con:value>CFF4F513F71F14AE4BDAD99EA72BB12C5</con:value>
+    </con:property>
+  </con:properties>
+  <con:wssContainer/>
+  <con:sensitiveInformation/>
+</con:soapui-project>

@@ -1,0 +1,63 @@
+<project name="IntegrationTest" default="soapui-tests" basedir=".">
+<description>Runs the soapUI integration tests</description>
+<property file="build.properties"/>
+
+<property name="project.base.dir" value="." />
+<property name="toughresources.dir" value="${project.base.dir}/../../ToughResources"/>
+<import file="${toughresources.dir}/common.build.xml" />
+
+
+
+
+<target name="checkos">
+<condition property="testrunner.cmd" value="${soapUI.home}/bin/testrunner.bat">
+<os family="windows" />
+</condition>
+<condition property="testrunner.cmd" value="../soapui-4.5.1/bin/testrunner.sh">
+<os family="unix" />
+</condition>
+</target>
+
+<target name="soapui-tests" depends="checkos">
+<mkdir dir="./Reports"/>
+<!-- Checkout the Testrunner Parameters for other arguments -->
+<exec executable="${testrunner.cmd}"
+failonerror="no"
+failifexecutionfails="yes">
+<arg value="-ehttp://${deploy.host}:8080"/>
+<arg value="-PVersion=2009-02-01"/>
+<arg value="-PSignatureMethod=HmacSHA256"/>
+<arg value="-PExpires=2009-04-18T22:52:43PST"/>
+<arg value="-PAWSAccessKeyId=${test.accessKey}"/>
+<arg value="-PSignatureVersion=2"/>
+<arg value="-PSignature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE"/>
+<arg value="-PAvailabilityZone=${default.availability.zone}"/>
+<arg value="-I"/>
+<arg value="-jf"/>
+<arg path="./Reports"/>
+<arg path="./TopStack-RDS-soapui-project.xml"/>
+</exec>
+</target>
+
+<target name="soapui-long-tests" depends="checkos">
+<mkdir dir="./Reports"/>
+<!-- Checkout the Testrunner Parameters for other arguments -->
+<exec executable="${testrunner.cmd}"
+failonerror="no"
+failifexecutionfails="yes">
+<arg value="-ehttp://${deploy.host}:8080"/>
+<arg value="-PVersion=2009-02-01"/>
+<arg value="-PSignatureMethod=HmacSHA256"/>
+<arg value="-PExpires=2009-04-18T22:52:43PST"/>
+<arg value="-PAWSAccessKeyId=${test.accessKey}"/>
+<arg value="-PSignatureVersion=2"/>
+<arg value="-PSignature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE"/>
+<arg value="-PAvailabilityZone=${default.availability.zone}"/>
+<arg value="-sTests for DB Instances" />
+<arg value="-I"/>
+<arg value="-jf"/>
+<arg path="./Reports"/>
+<arg path="./TopStack-RDS-soapui-project.xml"/>
+</exec>
+</target>
+</project>
